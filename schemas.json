@@ -1,0 +1,69 @@
+{
+  "schemas": {
+    "version": "1.0.0",
+    "form": {
+      "configure": {
+        "my-default": {
+          "angular": {
+            "url": "http://somewhere/over/the/rainbow"
+          }
+        }
+      },
+      "message": {
+        "example-01": {
+          "angular": {
+            "schema": ["*"]
+          }
+        }
+      }
+    },
+    "configure": {
+      "my-default-config": {
+        "url": null,
+        "type": "object",
+        "properties": {
+          "options": {
+            "type" : "object",
+            "properties" : {
+              "example" : {
+                "type" : "string"
+              }
+            }
+          }
+        },
+        "formSchema": {
+          "angular": "configure.my-default.angular"
+        }
+      }
+    },
+    "message": {
+      "example-message-01": {
+        "type": "object",
+        "properties": {
+          "example-opt": {
+            "type": "string"
+          },
+          "another-example-opt":{
+            "type": "string"
+          }
+        },
+        "formSchema": {
+          "angular": "message.example-01.angular"
+        },
+        "required": ["example-opt", "another-example-opt"]
+      },
+      "example-message-02": {
+        "type": "object",
+        "properties": {
+          "some-opt": {
+            "type": "string"
+          },
+          "another-some-opt":{
+            "type": "string"
+          }
+        },
+        "required": ["some-opt", "another-some-opt"]
+      }
+    }
+  }
+}
