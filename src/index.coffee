@@ -1,8 +1,8 @@
 {EventEmitter}  = require 'events'
 debug           = require('debug')('meshblu-connector-corsair:index')
-tinycolor       = require 'tinycolor2'
+tinyColor       = require 'tinycolor2'
 keyboard        = require 'corsair-rgb'
-schemas         = require './legacySchemas.json'
+schemas         = require '../legacySchemas.json'
 
 class Corsair extends EventEmitter
   constructor: ->
@@ -47,6 +47,6 @@ class Corsair extends EventEmitter
     { @uuid } = device
     debug 'started', @uuid
     @emit 'update', schemas
-    keybaord.initialize()
+    keyboard.initialize()
 
 module.exports = Corsair
