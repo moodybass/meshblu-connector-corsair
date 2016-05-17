@@ -21,8 +21,23 @@ class Corsair extends EventEmitter
     return if fromUuid == @uuid
     debug 'on message', { topic }
 
+    { allKeys, keycolour, key } = payload
+    return @singleKey key, keycolour unless allKeys == true
+    @allKey keycolour
+
+
+  allKey: (color) =>
+      color = tinyColor(color)
+   	  color = color.toRgb()
+      keyboard.setKeyColor(keyboard.keymap.all, color.r, color.g, color.b)
+      keyboard.flushLightBuffer()
+
+
   singleKey: (key, color) =>
-    
+      color = tinyColor(color)
+   	  color = color.toRgb()
+      keyboard.setKeyColor(keyboard.keymap.all[key], color.r, color.g, color.b)
+      keyboard.flushLightBuffer()
 
   onConfig: (device) =>
     { @options } = device

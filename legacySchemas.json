@@ -1,3 +1,20 @@
 {
-  "messageSchema" : {}
+  "messageSchema" : {
+    "type": "object",
+    "properties": {
+     "keycolour": {
+        "type": "string",
+  	  "title": "Keyboard Colour",
+  	  "default": "rgb(255,255,255)",
+        "required": true
+      },
+  	"allKeys": {
+  		"type": "boolean",
+  		"default": true
+  	},
+  	"key": {
+  		"type": "string"
+  	}
+    }
+  }
 }
