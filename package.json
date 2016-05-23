@@ -2,16 +2,16 @@
   "name": "meshblu-connector-corsair",
   "version": "1.0.0",
   "description": "Meshblu Connector ",
-  "homepage": "https://github.com/octoblu/corsair",
-  "bugs": "https://github.com/octoblu/corsair/issues",
+  "homepage": "https://github.com/moodybass/meshblu-connector-corsair",
+  "bugs": "https://github.com/moodybass/corsair/issues",
   "author": {
-    "name": "Octoblu",
-    "url": "https://github.com/octoblu"
+    "name": "moodybass",
+    "url": "https://github.com/moodybass"
   },
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/octoblu/corsair.git"
+    "url": "https://github.com/moodybass/meshblu-connector-corsair.git"
   },
   "scripts": {
     "start": "meshblu-connector-runner",
@@ -37,7 +37,7 @@
   },
   "meshbluConnector": {
     "githubSlug": "octoblu/meshblu-connector-corsair",
-    "schemasUrl": "https://raw.githubusercontent.com/octoblu/meshblu-connector-corsair/v1.0.0/schemas.json"
+    "schemasUrl": "https://raw.githubusercontent.com/moodybass/meshblu-connector-corsair/v1.0.0/schemas.json"
   },
   "platformDependencies": {
     "darwin": [],

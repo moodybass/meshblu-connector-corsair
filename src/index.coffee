@@ -21,10 +21,26 @@ class Corsair extends EventEmitter
     return if fromUuid == @uuid
     debug 'on message', { topic }
 
-    { allKeys, keycolour, key } = payload
-    return @singleKey key, keycolour unless allKeys == true
-    @allKey keycolour
+    switch payload.action
+      when "allKeys" then @allKey payload.keycolour
+      when "singleKey" then @singleKey payload.key, payload.keycolour
+      when "blink" then @blink payload.keycolour, payload.secondColor
+      when "blinkTime" then @blinkTime payload.keycolour, payload.secondColor, payload.count
+      else "error"
 
+  blinkTime: (color, color2, count) =>
+    self = @
+    do blinky = ->
+      self.blink(color, color2)
+      count -= 1
+      setTimeout blinky, 1500 unless count < 0
+
+
+  blink: (color, color2) =>
+    setTimeout ( =>
+      @allKey color
+    ), 1000
+    @allKey color2
 
   allKey: (color) =>
       color = tinyColor(color)

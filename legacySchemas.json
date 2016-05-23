@@ -2,19 +2,51 @@
   "messageSchema" : {
     "type": "object",
     "properties": {
-     "keycolour": {
+      "action": {
         "type": "string",
-  	  "title": "Keyboard Colour",
-  	  "default": "rgb(255,255,255)",
+        "enum": [
+          "allKeys",
+          "singleKey",
+          "blink",
+          "blinkTime"
+        ]
+      },
+      "keycolour": {
+        "type": "string",
+        "title": "Keyboard Colour",
+        "default": "rgb(255,255,255)",
         "required": true
       },
-  	"allKeys": {
-  		"type": "boolean",
-  		"default": true
-  	},
-  	"key": {
-  		"type": "string"
-  	}
+      "key": {
+        "type": "string"
+      },
+      "secondColor": {
+        "type": "string"
+      },
+      "count": {
+        "type": "number"
+      }
     }
-  }
+  },
+
+  "messageFormSchema": [
+    {
+      "key": "action"
+    },
+    {
+      "key": "keycolour"
+    },
+    {
+      "key": "secondColor",
+      "condition": "model.action == 'blink' || model.action == 'blinkTime'"
+    },
+    {
+      "key": "key",
+      "condition": "model.action == 'singleKey'"
+    },
+    {
+      "key": "count",
+      "condition": "model.action == 'blinkTime'"
+    }
+  ]
 }
